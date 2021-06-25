@@ -88,12 +88,17 @@ public class electrico {
         this.tiemporecargael = tiemporecargael;
     }
 
+//    @Override
+//    public String toString() {
+//        return marcael;
+//    }
+
     @Override
     public String toString() {
-        return marcael;
+        return "Electrico = " + "marcael=" + marcael + ", modeloel=" + modeloel + ", vinel=" + vinel + ", carroceriael=" + carroceriael + ", coeficienteel=" + coeficienteel + ", cantmotoresel=" + cantmotoresel + ", tiemporecargael=" + tiemporecargael;
     }
 
     
-
+    
     
 }

@@ -78,13 +78,15 @@ public class enchufable {
         this.cantgalones = cantgalones;
     }
 
+    
+    
+//    @Override
+//    public String toString() {
+//        return marcae;
+//    }    
+
     @Override
     public String toString() {
-        return marcae;
+        return "Enchufable = " + "marcae=" + marcae + ", modeloe=" + modeloe + ", vine=" + vine + ", carroceriae=" + carroceriae + ", maleteros3=" + maleteros3 + ", cantgalones=" + cantgalones;
     }
-
-    
-
-    
-    
 }
