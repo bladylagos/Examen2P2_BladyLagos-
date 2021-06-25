@@ -16,6 +16,7 @@ public class Examen2P2_BladyLagos {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        new Fabricacion().setVisible(true);
     }
-    
+
 }
