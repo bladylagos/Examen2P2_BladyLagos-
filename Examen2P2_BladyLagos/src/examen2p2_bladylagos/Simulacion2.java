@@ -31,9 +31,7 @@ public class Simulacion2 extends javax.swing.JFrame {
         tblenchufable.setModel(modelo);
         String[] datos = new String[2];
         for (int i = 0; i < bateria; i++) {
-//            datos[0] = GestionUnivercidad.listaAlumnos.get(i).getNumecuenta1();
             datos[0] = AdministracionFabrica.listaenchufable.get(i).getMarcae();
-//            datos[2] = GestionUnivercidad.listaCursos.get(i).getId3();
             datos[1] = AdministracionFabrica.listabaterias.get(i).getMarcab();
 
             modelo.addRow(datos);
@@ -54,6 +52,7 @@ public class Simulacion2 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblenchufable = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,6 +93,19 @@ public class Simulacion2 extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Enchufable", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 936, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 576, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Autos Ensamblados", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -152,6 +164,7 @@ public class Simulacion2 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblenchufable;

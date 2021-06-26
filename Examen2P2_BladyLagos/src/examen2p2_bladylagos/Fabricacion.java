@@ -17,6 +17,12 @@ import Clases.combustion;
 import Clases.electrico;
 import Clases.enchufable;
 import Clases.hibrido;
+import Hilos.Binarios1;
+import Hilos.Binarios2;
+import Hilos.Binarios3;
+import Hilos.Binarios4;
+import Hilos.Hilo;
+import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -35,6 +41,11 @@ public class Fabricacion extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         listarBaterias();
+
+        h1 = new Hilo(this.barra1);
+        h1.start();
+        String n = "Vehiculos";
+        barra1.setString(n);
     }
 
     public void listarBaterias() {
@@ -85,6 +96,7 @@ public class Fabricacion extends javax.swing.JFrame {
         jButton12 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         consumo1 = new javax.swing.JTextField();
@@ -174,21 +186,35 @@ public class Fabricacion extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         cb = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         cbH = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jButton17 = new javax.swing.JButton();
+        barra1 = new javax.swing.JProgressBar();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        t2 = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         cbE = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jButton18 = new javax.swing.JButton();
+        barra2 = new javax.swing.JProgressBar();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        t3 = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
         cbEl = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        jButton19 = new javax.swing.JButton();
+        barra3 = new javax.swing.JProgressBar();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        t4 = new javax.swing.JTable();
+        jLabel10 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
@@ -353,6 +379,8 @@ public class Fabricacion extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel5.setText("Agregar Vehiculo");
+
+        jLabel13.setText("Right Click a Tabla para Crud");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fabricacion");
@@ -947,8 +975,6 @@ public class Fabricacion extends javax.swing.JFrame {
             }
         });
 
-        jLabel13.setText("Right Click a Tabla para Crud");
-
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -978,29 +1004,23 @@ public class Fabricacion extends javax.swing.JFrame {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel5Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(351, 351, 351))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(213, 213, 213)
-                        .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(306, Short.MAX_VALUE))
+                        .addGap(429, 429, 429)
+                        .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(237, 237, 237)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(302, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(36, 36, 36)
                 .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(426, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("CRUD Combustible", jPanel5);
@@ -1035,6 +1055,45 @@ public class Fabricacion extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable2);
 
+        jButton17.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jButton17.setText("ensamblar");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
+
+        barra1.setForeground(new java.awt.Color(204, 0, 51));
+        barra1.setMaximum(1500);
+        barra1.setToolTipText("NETFLIX");
+
+        t2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        t2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        t2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t2MouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(t2);
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel8.setText("Vehiculos Hibridos Ya Ensamblados");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1047,7 +1106,22 @@ public class Fabricacion extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(240, 240, 240)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(299, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(barra1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(88, 88, 88))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(418, 418, 418)
+                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(418, Short.MAX_VALUE)))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1056,7 +1130,21 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(cbH, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(390, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(barra1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(162, 162, 162))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33))))
+            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGap(325, 325, 325)
+                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(325, Short.MAX_VALUE)))
         );
 
         jTabbedPane1.addTab("CRUD Hibrido", jPanel6);
@@ -1091,19 +1179,71 @@ public class Fabricacion extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(jTable3);
 
+        jButton18.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton18.setText("ensamblar");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+
+        barra2.setForeground(new java.awt.Color(204, 0, 51));
+        barra2.setMaximum(1500);
+        barra2.setToolTipText("NETFLIX");
+
+        t3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        t3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        t3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t3MouseClicked(evt);
+            }
+        });
+        jScrollPane11.setViewportView(t3);
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel9.setText("Vehiculos Enchufable Ya Ensamblados");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
+                .addGap(418, 418, 418)
+                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(161, 161, 161)
+                .addComponent(barra2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(cbE, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(451, 451, 451))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(260, 260, 260))))
+                        .addGap(260, 260, 260))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(119, 119, 119))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1112,7 +1252,19 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(cbE, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(384, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(barra2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))))
         );
 
         jTabbedPane1.addTab("CRUD Enchufable", jPanel7);
@@ -1147,6 +1299,45 @@ public class Fabricacion extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(jTable4);
 
+        jButton19.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jButton19.setText("ensamblar");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
+        barra3.setForeground(new java.awt.Color(204, 0, 51));
+        barra3.setMaximum(1500);
+        barra3.setToolTipText("NETFLIX");
+
+        t4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        t4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        t4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t4MouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(t4);
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setText("Vehiculos Electricos Ya Ensamblados");
+
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
@@ -1158,8 +1349,21 @@ public class Fabricacion extends javax.swing.JFrame {
                         .addComponent(cbEl, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(249, 249, 249)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(290, Short.MAX_VALUE))
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(410, 410, 410)
+                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(barra3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(125, 125, 125))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1168,7 +1372,19 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(cbEl, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(401, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(barra3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
         );
 
         jTabbedPane1.addTab("CRUD Electrico", jPanel8);
@@ -1348,9 +1564,9 @@ public class Fabricacion extends javax.swing.JFrame {
                             .addComponent(jLabel51)
                             .addComponent(cb_baterias6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(17, 17, 17)
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel50)
-                            .addComponent(tiempo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tiempo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel50))))
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -1370,16 +1586,16 @@ public class Fabricacion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(23, 23, 23)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1088, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(23, 23, 23)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 717, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -1418,6 +1634,11 @@ public class Fabricacion extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cb.getModel();
         DefaultComboBoxModel modelo20 = (DefaultComboBoxModel) cb_1.getModel();
+
+        //Binarios
+        Binarios1 a = new Binarios1("./combustion.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
 
         modelo.addElement(new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2));
         combustion p = new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2);
@@ -1512,6 +1733,10 @@ public class Fabricacion extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbH.getModel();
         DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_2.getModel();
+
+        Binarios2 a = new Binarios2("./hibrido.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
 
         modelo.addElement(new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3));
         hibrido f = new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3);
@@ -1652,6 +1877,10 @@ public class Fabricacion extends javax.swing.JFrame {
         DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbE.getModel();
         DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_3.getModel();
 
+        Binarios3 a = new Binarios3("./enchufable.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
+
         modelo.addElement(new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4));
         enchufable f = new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4);
 
@@ -1720,6 +1949,10 @@ public class Fabricacion extends javax.swing.JFrame {
 
         DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbEl.getModel();
         DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_4.getModel();
+
+        Binarios4 a = new Binarios4("./electrico.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
 
         modelo.addElement(new electrico(marca5, modelo5, vin5, carroceria5, coeficient5, motores5, tiempo5));
         electrico f = new electrico(marca5, modelo5, vin5, carroceria5, coeficient5, motores5, tiempo5);
@@ -1859,6 +2092,124 @@ public class Fabricacion extends javax.swing.JFrame {
         new Simulacion2().setVisible(true);
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        // TODO add your handling code here:
+        try {
+            David2 cc = (David2) cbH.getSelectedItem();
+            int c = cc.getLista2().size();
+            System.out.println(c);
+            h1.setCont(c);
+            h1.setProgBar(barra1);
+            h1.setAvanzar(true);
+            int i = cbH.getSelectedIndex();
+            hibrido p;
+            p = cc.getLista2().get(i);
+            DefaultTableModel modelo66 = (DefaultTableModel) t2.getModel();
+            for (int j = 0; j < cc.getLista2().size(); j++) {
+                String n = cc.getLista2().get(j).getMarcah();
+                String pun = cc.getLista2().get(j).getModeloh();
+                String fecha = cc.getLista2().get(j).getVinh();
+                String ti = cc.getLista2().get(j).getCarroceriah();
+                String gen = cc.getLista2().get(j).getPrecioh();
+                Object newRow[] = {
+                    n, pun, fecha, ti, gen
+
+                };
+
+                modelo66.addRow(newRow);
+
+                t2.setModel(modelo66);
+            }
+            JOptionPane.showMessageDialog(this, "El Vehiculo Hibrido Fue Ensamblado Correctamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        }
+
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void t2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t2MouseClicked
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        // TODO add your handling code here:
+        try {
+            David3 cc = (David3) cbE.getSelectedItem();
+            int c = cc.getLista3().size();
+            System.out.println(c);
+            h1.setCont(c);
+            h1.setProgBar(barra2);
+            h1.setAvanzar(true);
+            int i = cbE.getSelectedIndex();
+            enchufable p;
+            p = cc.getLista3().get(i);
+            DefaultTableModel modelo66 = (DefaultTableModel) t3.getModel();
+            for (int j = 0; j < cc.getLista3().size(); j++) {
+                String a = cc.getLista3().get(j).getMarcae();
+                String b = cc.getLista3().get(j).getModeloe();
+                String ce = cc.getLista3().get(j).getVine();
+                String d = cc.getLista3().get(j).getCarroceriae();
+                String e = cc.getLista3().get(j).getCantgalones();
+                Object newRow[] = {
+                    a, b, ce, d, e
+
+                };
+
+                modelo66.addRow(newRow);
+
+                t2.setModel(modelo66);
+            }
+            JOptionPane.showMessageDialog(this, "El Vehiculo Enchufable Fue Ensamblado Correctamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void t3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t3MouseClicked
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        try {
+            David4 cc = (David4) cbEl.getSelectedItem();
+            int c = cc.getLista4().size();
+            System.out.println(c);
+            h1.setCont(c);
+            h1.setProgBar(barra3);
+            h1.setAvanzar(true);
+            int i = cbEl.getSelectedIndex();
+            electrico p;
+            p = cc.getLista4().get(i);
+            DefaultTableModel modelo66 = (DefaultTableModel) t4.getModel();
+            for (int j = 0; j < cc.getLista4().size(); j++) {
+                String a = cc.getLista4().get(j).getMarcael();
+                String b = cc.getLista4().get(j).getModeloel();
+                String ce = cc.getLista4().get(j).getVinel();
+                String d = cc.getLista4().get(j).getCarroceriael();
+                String e = cc.getLista4().get(j).getTiemporecargael();
+                Object newRow[] = {
+                    a, b, ce, d, e
+
+                };
+
+                modelo66.addRow(newRow);
+
+                t2.setModel(modelo66);
+            }
+            JOptionPane.showMessageDialog(this, "El Vehiculo Electrico Fue Ensamblado Correctamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void t4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1896,6 +2247,9 @@ public class Fabricacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField autonomia5;
+    private javax.swing.JProgressBar barra1;
+    private javax.swing.JProgressBar barra2;
+    private javax.swing.JProgressBar barra3;
     private javax.swing.JTextField cantcilindros1;
     private javax.swing.JTextField cantpasajeros2;
     private javax.swing.JTextField capacidad5;
@@ -1937,6 +2291,9 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
+    private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1947,6 +2304,7 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -1993,6 +2351,8 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
@@ -2004,6 +2364,9 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2040,6 +2403,9 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JDialog mos5;
     private javax.swing.JTextField motores4;
     private javax.swing.JTextField precio2;
+    private javax.swing.JTable t2;
+    private javax.swing.JTable t3;
+    private javax.swing.JTable t4;
     private javax.swing.JTable tblBaterias;
     private javax.swing.JTextField tiempo4;
     private javax.swing.JTextField tiempo5;
@@ -2048,4 +2414,6 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JTextField vin3;
     private javax.swing.JTextField vin4;
     // End of variables declaration//GEN-END:variables
+    ArrayList<hibrido> Creadas = new ArrayList();
+    Hilo h1;
 }
