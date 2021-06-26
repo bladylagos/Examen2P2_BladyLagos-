@@ -90,8 +90,9 @@ public class hibrido {
 
     @Override
     public String toString() {
-        return marcah;
+        return "Hibrido = " + "marcah=" + marcah + ", modeloh=" + modeloh + ", vinh=" + vinh + ", carroceriah=" + carroceriah + ", kmautonomiah=" + kmautonomiah + ", cantpasajerosh=" + cantpasajerosh + ", precioh=" + precioh;
     }
 
+    
     
 }

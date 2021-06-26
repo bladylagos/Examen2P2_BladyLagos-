@@ -40,27 +40,11 @@ public class Fabricacion extends javax.swing.JFrame {
     public Fabricacion() {
         initComponents();
         this.setLocationRelativeTo(null);
-        listarBaterias();
 
         h1 = new Hilo(this.barra1);
         h1.start();
         String n = "Vehiculos";
         barra1.setString(n);
-    }
-
-    public void listarBaterias() {
-        int cantidad = AdministracionFabrica.listabaterias.size();
-        DefaultTableModel modelo = (DefaultTableModel) tblBaterias.getModel();
-        tblBaterias.setModel(modelo);
-        String[] datos = new String[4];
-        for (int i = 0; i < cantidad; i++) {
-            datos[0] = AdministracionFabrica.listabaterias.get(i).getMarcab();
-            datos[1] = AdministracionFabrica.listabaterias.get(i).getCapacidadb();
-            datos[2] = AdministracionFabrica.listabaterias.get(i).getAutonomiab();
-            datos[3] = AdministracionFabrica.listabaterias.get(i).getModulosb();
-            modelo.addRow(datos);
-        }
-
     }
 
     /**
@@ -97,6 +81,9 @@ public class Fabricacion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jButton15 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         consumo1 = new javax.swing.JTextField();
@@ -188,6 +175,7 @@ public class Fabricacion extends javax.swing.JFrame {
         cb = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton20 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         cbH = new javax.swing.JComboBox<>();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -197,6 +185,9 @@ public class Fabricacion extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         t2 = new javax.swing.JTable();
         jLabel8 = new javax.swing.JLabel();
+        cbbaterias = new javax.swing.JComboBox<>();
+        jLabel14 = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         cbE = new javax.swing.JComboBox<>();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -206,6 +197,9 @@ public class Fabricacion extends javax.swing.JFrame {
         jScrollPane11 = new javax.swing.JScrollPane();
         t3 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
+        cbbaterias2 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jButton22 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         cbEl = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
@@ -215,10 +209,10 @@ public class Fabricacion extends javax.swing.JFrame {
         jScrollPane12 = new javax.swing.JScrollPane();
         t4 = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
+        cbbaterias3 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jButton23 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         modulos5 = new javax.swing.JTextField();
         jLabel46 = new javax.swing.JLabel();
@@ -382,6 +376,30 @@ public class Fabricacion extends javax.swing.JFrame {
 
         jLabel13.setText("Right Click a Tabla para Crud");
 
+        jButton15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton15.setText("Hilo Enchufable");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton14.setText("Hibrido");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton16.setText("Electrico");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fabricacion");
 
@@ -522,7 +540,7 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Combustible", jPanel1);
@@ -671,7 +689,7 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Hibrido", jPanel2);
@@ -811,7 +829,7 @@ public class Fabricacion extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(galones3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel31))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -962,7 +980,7 @@ public class Fabricacion extends javax.swing.JFrame {
                     .addComponent(cb_carroceria4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
@@ -981,7 +999,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Consumo(Litros/Km)"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -999,6 +1017,13 @@ public class Fabricacion extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
+        jButton20.setText("Eliminar");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -1010,7 +1035,10 @@ public class Fabricacion extends javax.swing.JFrame {
                         .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(237, 237, 237)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(498, 498, 498)
+                        .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(302, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -1020,10 +1048,12 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(cb, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addComponent(jButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(333, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("CRUD Combustible", jPanel5);
+        jTabbedPane1.addTab("CRUD  Combustible", jPanel5);
 
         cbH.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1037,7 +1067,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1073,7 +1103,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Precio"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1094,19 +1124,25 @@ public class Fabricacion extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel8.setText("Vehiculos Hibridos Ya Ensamblados");
 
+        cbbaterias.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbateriasItemStateChanged(evt);
+            }
+        });
+
+        jLabel14.setText("Baterias");
+
+        jButton21.setText("Eliminar");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(426, 426, 426)
-                        .addComponent(cbH, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(180, 180, 180)
                 .addComponent(barra1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1117,20 +1153,52 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(88, 88, 88))
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(418, 418, 418)
-                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(418, Short.MAX_VALUE)))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(426, 426, 426)
+                        .addComponent(cbH, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(cbbaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel14)
+                                .addGap(95, 95, 95)))
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(61, 61, 61)
                 .addComponent(cbH, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbbaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(105, 105, 105)))
+                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1140,14 +1208,9 @@ public class Fabricacion extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(33, 33, 33))))
-            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel6Layout.createSequentialGroup()
-                    .addGap(325, 325, 325)
-                    .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(325, Short.MAX_VALUE)))
         );
 
-        jTabbedPane1.addTab("CRUD Hibrido", jPanel6);
+        jTabbedPane1.addTab("CRUD Y Simulacion  De Hibrido", jPanel6);
 
         cbE.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1161,7 +1224,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Cant Galones"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1197,7 +1260,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Cant Galones"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1218,6 +1281,21 @@ public class Fabricacion extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel9.setText("Vehiculos Enchufable Ya Ensamblados");
 
+        cbbaterias2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbaterias2ItemStateChanged(evt);
+            }
+        });
+
+        jLabel12.setText("Baterias");
+
+        jButton22.setText("Eliminar");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1229,7 +1307,7 @@ public class Fabricacion extends javax.swing.JFrame {
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(161, 161, 161)
                 .addComponent(barra2, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -1239,20 +1317,43 @@ public class Fabricacion extends javax.swing.JFrame {
                         .addComponent(cbE, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(451, 451, 451))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(260, 260, 260))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(119, 119, 119))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(cbbaterias2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel12)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(121, 121, 121))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addComponent(cbE, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(78, 78, 78)
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbbaterias2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(28, 28, 28))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton22, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(95, 95, 95)))
                 .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -1260,14 +1361,14 @@ public class Fabricacion extends javax.swing.JFrame {
                         .addComponent(barra2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))))
         );
 
-        jTabbedPane1.addTab("CRUD Enchufable", jPanel7);
+        jTabbedPane1.addTab("CRUD  Y Simulacion  De Enchufable", jPanel7);
 
         cbEl.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -1281,7 +1382,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Tiempo Recarga"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1317,7 +1418,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nombre", "Puntuacion", "Fecha", "Tipo", "Genero"
+                "Marca", "Modelo", "Vin", "Carroceria", "Tiempo Recarga"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -1336,24 +1437,27 @@ public class Fabricacion extends javax.swing.JFrame {
         jScrollPane12.setViewportView(t4);
 
         jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel10.setText("Vehiculos Electricos Ya Ensamblados");
+        jLabel10.setText("Vehiculos Enchufable Ya Ensamblados");
+
+        cbbaterias3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbbaterias3ItemStateChanged(evt);
+            }
+        });
+
+        jLabel11.setText("Baterias");
+
+        jButton23.setText("Eliminar");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(445, 445, 445)
-                        .addComponent(cbEl, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(249, 249, 249)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(410, 410, 410)
-                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(104, 104, 104)
                 .addComponent(barra3, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1364,80 +1468,74 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(125, 125, 125))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(445, 445, 445)
+                        .addComponent(cbEl, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(cbbaterias3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(jLabel11)))
+                        .addGap(32, 32, 32)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(413, 413, 413)
+                        .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(52, 52, 52)
                 .addComponent(cbEl, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel11)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbbaterias3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jButton23, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(barra3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))))
         );
 
-        jTabbedPane1.addTab("CRUD Electrico", jPanel8);
-
-        jButton14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton14.setText("Hibrido");
-        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton14MouseClicked(evt);
-            }
-        });
-        jButton14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton14ActionPerformed(evt);
-            }
-        });
-
-        jButton15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton15.setText("Hilo Enchufable");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-
-        jButton16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButton16.setText("Electrico");
+        jTabbedPane1.addTab("CRUD Y Simulacion  De Electrico", jPanel8);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(129, 129, 129)
-                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(120, 120, 120)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(103, Short.MAX_VALUE))
+            .addGap(0, 1086, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(352, Short.MAX_VALUE))
+            .addGap(0, 675, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Ensamblaje", jPanel9);
+        jTabbedPane1.addTab("Help", jPanel9);
 
         jLabel46.setText("Modelo");
 
@@ -1463,7 +1561,7 @@ public class Fabricacion extends javax.swing.JFrame {
 
         jLabel53.setText("Autonomia");
 
-        cb_baterias6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Combustión", "Hibrido", "Hibrido enchufable", "Eléctrico puro" }));
+        cb_baterias6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Hibrido enchufable", "Eléctrico puro" }));
 
         jButton13.setText("CB");
         jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1576,7 +1674,7 @@ public class Fabricacion extends javax.swing.JFrame {
                         .addComponent(modulos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(79, 79, 79)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(243, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Bateria", jPanel10);
@@ -1601,196 +1699,152 @@ public class Fabricacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
-        String marca2 = marca1.getText();
-        String modelo2 = modelo1.getText();
-        String vin2 = vin1.getText();
-        String carroceria2 = "";
-
-        if (cb_carroceria1.getSelectedIndex() == 0) {
-            carroceria2 = "familiar";
-        }
-        if (cb_carroceria1.getSelectedIndex() == 1) {
-            carroceria2 = "SUV";
-        }
-        if (cb_carroceria1.getSelectedIndex() == 2) {
-            carroceria2 = "compacto";
-        }
-        if (cb_carroceria1.getSelectedIndex() == 3) {
-            carroceria2 = "subcompacto";
-        }
-        if (cb_carroceria1.getSelectedIndex() == 4) {
-            carroceria2 = "deportivo";
-        }
-
-        String cilindrada2 = cilindraje1.getText();
-        String cantcilindros2 = cantcilindros1.getText();
-        String consumo2 = consumo1.getText();
-
-        DefaultListModel modelo
-                = (DefaultListModel) j_combustible.getModel();
-
-        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cb.getModel();
-        DefaultComboBoxModel modelo20 = (DefaultComboBoxModel) cb_1.getModel();
-
-        //Binarios
-        Binarios1 a = new Binarios1("./combustion.cbm");
-        a.cargarArchivo();
-        a.escribirArchivo();
-
-        modelo.addElement(new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2));
-        combustion p = new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2);
-
-        AdministracionFabrica.agregarcombustion(p);
-
-        cb.setModel(modelo10);
-        cb_1.setModel(modelo20);
-        David c = new David();
-        c.getLista().add(p);
-        c.setNombre(cnombre1.getText());
-        modelo10.addElement(c);
-        modelo20.addElement(c);
-        cnombre1.setText("");
-
-        marca1.setText("");
-        modelo1.setText("");
-        vin1.setText("");
-        //
-        cilindraje1.setText("");
-        cantcilindros1.setText("");
-        consumo1.setText("");
-
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void cbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbItemStateChanged
+    private void cbBateriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbBateriaItemStateChanged
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cb.getModel();
-        DefaultTableModel modelo20 = (DefaultTableModel) jTable1.getModel();
-        if (evt.getStateChange() == 1) {
+    }//GEN-LAST:event_cbBateriaItemStateChanged
 
-            David c = (David) modelo10.getSelectedItem();
-
-            for (combustion p : c.getLista()) {
-
-                Object[] newRow = {
-                    p.getMarca(),
-                    p.getModelo(),
-                    p.getVin(),
-                    p.getCarroceria(),
-                    p.getConsumo()
-                };
-                modelo20.addRow(newRow);
-
-            }
-
-        }
-    }//GEN-LAST:event_cbItemStateChanged
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
+        JOptionPane.showMessageDialog(null, "Bateria Agregada\nProceda al boton de abajo");
+    }//GEN-LAST:event_jButton12ActionPerformed
 
-    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         // TODO add your handling code here:
-        mos.setModal(true);
-        mos.pack();
-        mos.setLocationRelativeTo(this);
-        mos.setVisible(true);
-    }//GEN-LAST:event_jButton2MouseClicked
+        mos5.setModal(true);
+        mos5.pack();
+        mos5.setLocationRelativeTo(this);
+        mos5.setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
         // TODO add your handling code here:
-//        try {
-        String marca3 = marca2.getText();
-        String modelo3 = modelo2.getText();
-        String vin3 = vin2.getText();
-        String carroceria3 = "";
+    }//GEN-LAST:event_jButton13MouseClicked
 
-        if (cb_carroceria2.getSelectedIndex() == 0) {
-            carroceria3 = "familiar";
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        String marca6 = marca5.getText();
+        String capacidad6 = capacidad5.getText();
+        String autonomia6 = autonomia5.getText();
+        String modulos6 = modulos5.getText();
+        String carga6 = carga5.getText();
+
+        String cbvehiculos6 = "";
+
+        if (cb_baterias6.getSelectedIndex() == 0) {
+            cbvehiculos6 = "Hibrido";
         }
-        if (cb_carroceria2.getSelectedIndex() == 1) {
-            carroceria3 = "SUV";
+        if (cb_baterias6.getSelectedIndex() == 1) {
+            cbvehiculos6 = "Hibrido enchufable";
         }
-        if (cb_carroceria2.getSelectedIndex() == 2) {
-            carroceria3 = "compacto";
+        if (cb_baterias6.getSelectedIndex() == 2) {
+            cbvehiculos6 = "Eléctrico puro";
         }
-        if (cb_carroceria2.getSelectedIndex() == 3) {
-            carroceria3 = "subcompacto";
-        }
-        if (cb_carroceria2.getSelectedIndex() == 4) {
-            carroceria3 = "deportivo";
-        }
+        String tiempo6 = tiempo5.getText();
 
-        String km3 = km2.getText();
-        String cantpasajeros3 = cantpasajeros2.getText();
-        String precio3 = precio2.getText();
+        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbbaterias.getModel();
+        DefaultComboBoxModel modelo112 = (DefaultComboBoxModel) cbbaterias2.getModel();
+        DefaultComboBoxModel modelo113 = (DefaultComboBoxModel) cbbaterias3.getModel();
+        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_5.getModel();
 
-        DefaultListModel modelo
-                = (DefaultListModel) j_hibrido.getModel();
+        baterias f = new baterias(marca6, capacidad6, autonomia6, modulos6, carga6, cbvehiculos6, tiempo6);
+        AdministracionFabrica.agregarbaterias(f);
 
-        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbH.getModel();
-        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_2.getModel();
-
-        Binarios2 a = new Binarios2("./hibrido.cbm");
-        a.cargarArchivo();
-        a.escribirArchivo();
-
-        modelo.addElement(new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3));
-        hibrido f = new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3);
-
-        AdministracionFabrica.agregarhibrido(f);
-//        
-        cbH.setModel(modelo11);
-        cb_2.setModel(modelo22);
-        David2 g = new David2();
-        g.getLista2().add(f);
-        g.setNombre(cnombre2.getText());
+        cbbaterias.setModel(modelo11);
+        cbbaterias2.setModel(modelo11);
+        cbbaterias3.setModel(modelo11);
+        cb_5.setModel(modelo22);
+        David5 g = new David5();
+        g.getLista5().add(f);
+        g.setNombre(cnombre5.getText());
         modelo11.addElement(g);
         modelo22.addElement(g);
-        cnombre2.setText("");
+        cnombre5.setText("");
 
-        marca2.setText("");
-        modelo2.setText("");
-        vin2.setText("");
+        marca5.setText("");
+        capacidad5.setText("");
+        autonomia5.setText("");
         //
-        km2.setText("");
-        cantpasajeros2.setText("");
-        precio2.setText("");
-//        } catch (Exception e) {
-//        }
+        modulos5.setText("");
+        carga5.setText("");
+        tiempo5.setText("");
+        JOptionPane.showMessageDialog(this, "Bateria Agregada");
+    }//GEN-LAST:event_jButton11ActionPerformed
 
-
-    }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jButton15ActionPerformed
 
-        mos2.setModal(true);
-        mos2.pack();
-        mos2.setLocationRelativeTo(this);
-        mos2.setVisible(true);
-
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void cbHItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbHItemStateChanged
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cbH.getModel();
-        DefaultTableModel modelo20 = (DefaultTableModel) jTable2.getModel();
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void t4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_t4MouseClicked
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+        try {
+            David4 cc = (David4) cbEl.getSelectedItem();
+            int c = cc.getLista4().size();
+            System.out.println(c);
+            h1.setCont(c);
+            h1.setProgBar(barra3);
+            h1.setAvanzar(true);
+            int i = cbEl.getSelectedIndex();
+            electrico p;
+            p = cc.getLista4().get(i);
+            DefaultTableModel modelo66 = (DefaultTableModel) t4.getModel();
+            for (int j = 0; j < cc.getLista4().size(); j++) {
+                String a = cc.getLista4().get(j).getMarcael();
+                String b = cc.getLista4().get(j).getModeloel();
+                String ce = cc.getLista4().get(j).getVinel();
+                String d = cc.getLista4().get(j).getCarroceriael();
+                String e = cc.getLista4().get(j).getTiemporecargael();
+                Object newRow[] = {
+                    a, b, ce, d, e
+
+                };
+
+                modelo66.addRow(newRow);
+
+                t2.setModel(modelo66);
+            }
+            JOptionPane.showMessageDialog(this, "El Vehiculo Electrico Fue Ensamblado Correctamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void cbElItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbElItemStateChanged
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cbEl.getModel();
+        DefaultTableModel modelo20 = (DefaultTableModel) jTable4.getModel();
         if (evt.getStateChange() == 1) {
 
-            David2 c = (David2) modelo10.getSelectedItem();
+            David4 c = (David4) modelo10.getSelectedItem();
 
-            for (hibrido p : c.getLista2()) {
+            for (electrico p : c.getLista4()) {
 
                 Object[] newRow = {
-                    p.getMarcah(),
-                    p.getModeloh(),
-                    p.getVinh(),
-                    p.getCarroceriah(),
-                    p.getPrecioh()
+                    p.getMarcael(),
+                    p.getModeloel(),
+                    p.getVinel(),
+                    p.getCarroceriael(),
+                    p.getTiemporecargael()
 
                 };
                 modelo20.addRow(newRow);
@@ -1798,15 +1852,50 @@ public class Fabricacion extends javax.swing.JFrame {
             }
 
         }
-    }//GEN-LAST:event_cbHItemStateChanged
+    }//GEN-LAST:event_cbElItemStateChanged
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void t3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t3MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_t3MouseClicked
 
-    private void galones3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_galones3ActionPerformed
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_galones3ActionPerformed
+        try {
+            David3 cc = (David3) cbE.getSelectedItem();
+            int c = cc.getLista3().size();
+            System.out.println(c);
+            h1.setCont(c);
+            h1.setProgBar(barra2);
+            h1.setAvanzar(true);
+            int i = cbE.getSelectedIndex();
+            enchufable p;
+            p = cc.getLista3().get(i);
+            DefaultTableModel modelo66 = (DefaultTableModel) t3.getModel();
+            for (int j = 0; j < cc.getLista3().size(); j++) {
+                String a = cc.getLista3().get(j).getMarcae();
+                String b = cc.getLista3().get(j).getModeloe();
+                String ce = cc.getLista3().get(j).getVine();
+                String d = cc.getLista3().get(j).getCarroceriae();
+                String e = cc.getLista3().get(j).getCantgalones();
+                Object newRow[] = {
+                    a, b, ce, d, e
+
+                };
+
+                modelo66.addRow(newRow);
+
+                t2.setModel(modelo66);
+            }
+            JOptionPane.showMessageDialog(this, "El Vehiculo Enchufable Fue Ensamblado Correctamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        }
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable3MouseClicked
 
     private void cbEItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbEItemStateChanged
         // TODO add your handling code here:
@@ -1833,89 +1922,101 @@ public class Fabricacion extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cbEItemStateChanged
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+    private void t2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_t2MouseClicked
 
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
-        mos3.setModal(true);
-        mos3.pack();
-        mos3.setLocationRelativeTo(this);
-        mos3.setVisible(true);
-    }//GEN-LAST:event_jButton6MouseClicked
+        try {
+            David2 cc = (David2) cbH.getSelectedItem();
+            int c = cc.getLista2().size();
+            System.out.println(c);
+            h1.setCont(c);
+            h1.setProgBar(barra1);
+            h1.setAvanzar(true);
+            int i = cbH.getSelectedIndex();
+            hibrido p;
+            p = cc.getLista2().get(i);
+            DefaultTableModel modelo66 = (DefaultTableModel) t2.getModel();
+            for (int j = 0; j < cc.getLista2().size(); j++) {
+                String n = cc.getLista2().get(j).getMarcah();
+                String pun = cc.getLista2().get(j).getModeloh();
+                String fecha = cc.getLista2().get(j).getVinh();
+                String ti = cc.getLista2().get(j).getCarroceriah();
+                String gen = cc.getLista2().get(j).getPrecioh();
+                Object newRow[] = {
+                    n, pun, fecha, ti, gen
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+                };
+
+                modelo66.addRow(newRow);
+
+                t2.setModel(modelo66);
+            }
+            JOptionPane.showMessageDialog(this, "El Vehiculo Hibrido Fue Ensamblado Correctamente");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        }
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
+    }//GEN-LAST:event_jTable2MouseClicked
 
-        String modelo4 = modelo3.getText();
-        String vin4 = vin3.getText();
-        String carroceria4 = "";
-
-        if (cb_carroceria3.getSelectedIndex() == 0) {
-            carroceria4 = "familiar";
-        }
-        if (cb_carroceria3.getSelectedIndex() == 1) {
-            carroceria4 = "SUV";
-        }
-        if (cb_carroceria3.getSelectedIndex() == 2) {
-            carroceria4 = "compacto";
-        }
-        if (cb_carroceria3.getSelectedIndex() == 3) {
-            carroceria4 = "subcompacto";
-        }
-        if (cb_carroceria3.getSelectedIndex() == 4) {
-            carroceria4 = "deportivo";
-        }
-
-        String maleteros4 = maleteros3.getText();
-        String cantgalones4 = galones3.getText();
-
-        DefaultListModel modelo
-                = (DefaultListModel) j_enchufable.getModel();
-
-        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbE.getModel();
-        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_3.getModel();
-
-        Binarios3 a = new Binarios3("./enchufable.cbm");
-        a.cargarArchivo();
-        a.escribirArchivo();
-
-        modelo.addElement(new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4));
-        enchufable f = new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4);
-
-        AdministracionFabrica.agregarenchufable(f);
-
-        cbE.setModel(modelo11);
-        cb_3.setModel(modelo22);
-        David3 g = new David3();
-        g.getLista3().add(f);
-        g.setNombre(cnombre3.getText());
-        modelo11.addElement(g);
-        modelo22.addElement(g);
-
-        cnombre3.setText("");
-        marca3.setText("");
-        modelo3.setText("");
-        vin3.setText("");
-        //
-        maleteros3.setText("");
-        galones3.setText("");
-    }//GEN-LAST:event_jButton7MouseClicked
-
-    private void motores4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motores4ActionPerformed
+    private void cbHItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbHItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_motores4ActionPerformed
+        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cbH.getModel();
+        DefaultTableModel modelo20 = (DefaultTableModel) jTable2.getModel();
+        if (evt.getStateChange() == 1) {
 
-    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+            David2 c = (David2) modelo10.getSelectedItem();
+
+            for (hibrido p : c.getLista2()) {
+
+                Object[] newRow = {
+                    p.getMarcah(),
+                    p.getModeloh(),
+                    p.getVinh(),
+                    p.getCarroceriah(),
+                    p.getPrecioh()
+
+                };
+                modelo20.addRow(newRow);
+
+            }
+
+        }
+    }//GEN-LAST:event_cbHItemStateChanged
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
 
-        mos4.setModal(true);
-        mos4.pack();
-        mos4.setLocationRelativeTo(this);
-        mos4.setVisible(true);
+    private void cbItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbItemStateChanged
+        // TODO add your handling code here:
+        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cb.getModel();
+        DefaultTableModel modelo20 = (DefaultTableModel) jTable1.getModel();
+        if (evt.getStateChange() == 1) {
 
-    }//GEN-LAST:event_jButton8MouseClicked
+            David c = (David) modelo10.getSelectedItem();
+
+            for (combustion p : c.getLista()) {
+
+                Object[] newRow = {
+                    p.getMarca(),
+                    p.getModelo(),
+                    p.getVin(),
+                    p.getCarroceria(),
+                    p.getConsumo()
+                };
+                modelo20.addRow(newRow);
+
+            }
+
+        }
+    }//GEN-LAST:event_cbItemStateChanged
 
     private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
         // TODO add your handling code here:
@@ -1977,238 +2078,295 @@ public class Fabricacion extends javax.swing.JFrame {
         tiempo4.setText("");
     }//GEN-LAST:event_jButton9MouseClicked
 
-    private void cbElItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbElItemStateChanged
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
         // TODO add your handling code here:
-        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cbEl.getModel();
-        DefaultTableModel modelo20 = (DefaultTableModel) jTable4.getModel();
-        if (evt.getStateChange() == 1) {
 
-            David4 c = (David4) modelo10.getSelectedItem();
+        mos4.setModal(true);
+        mos4.pack();
+        mos4.setLocationRelativeTo(this);
+        mos4.setVisible(true);
+    }//GEN-LAST:event_jButton8MouseClicked
 
-            for (electrico p : c.getLista4()) {
-
-                Object[] newRow = {
-                    p.getMarcael(),
-                    p.getModeloel(),
-                    p.getVinel(),
-                    p.getCarroceriael(),
-                    p.getTiemporecargael()
-
-                };
-                modelo20.addRow(newRow);
-
-            }
-
-        }
-    }//GEN-LAST:event_cbElItemStateChanged
-
-    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+    private void motores4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motores4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTable4MouseClicked
+    }//GEN-LAST:event_motores4ActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
         // TODO add your handling code here:
-        new Bateria().setVisible(true);
-    }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-        String marca6 = marca5.getText();
-        String capacidad6 = capacidad5.getText();
-        String autonomia6 = autonomia5.getText();
-        String modulos6 = modulos5.getText();
-        String carga6 = carga5.getText();
+        String modelo4 = modelo3.getText();
+        String vin4 = vin3.getText();
+        String carroceria4 = "";
 
-        String cbvehiculos6 = "";
-
-        if (cb_baterias6.getSelectedIndex() == 0) {
-            cbvehiculos6 = "Hibrido";
+        if (cb_carroceria3.getSelectedIndex() == 0) {
+            carroceria4 = "familiar";
         }
-        if (cb_baterias6.getSelectedIndex() == 1) {
-            cbvehiculos6 = "Hibrido enchufable";
+        if (cb_carroceria3.getSelectedIndex() == 1) {
+            carroceria4 = "SUV";
         }
-        if (cb_baterias6.getSelectedIndex() == 2) {
-            cbvehiculos6 = "Eléctrico puro";
+        if (cb_carroceria3.getSelectedIndex() == 2) {
+            carroceria4 = "compacto";
         }
-        String tiempo6 = tiempo5.getText();
+        if (cb_carroceria3.getSelectedIndex() == 3) {
+            carroceria4 = "subcompacto";
+        }
+        if (cb_carroceria3.getSelectedIndex() == 4) {
+            carroceria4 = "deportivo";
+        }
 
-        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbBateria.getModel();
-        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_5.getModel();
+        String maleteros4 = maleteros3.getText();
+        String cantgalones4 = galones3.getText();
 
-        baterias f = new baterias(marca6, capacidad6, autonomia6, modulos6, carga6, cbvehiculos6, tiempo6);
-        AdministracionFabrica.agregarbaterias(f);
+        DefaultListModel modelo
+                = (DefaultListModel) j_enchufable.getModel();
 
-        cbBateria.setModel(modelo11);
-        cb_5.setModel(modelo22);
-        David5 g = new David5();
-        g.getLista5().add(f);
-        g.setNombre(cnombre5.getText());
+        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbE.getModel();
+        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_3.getModel();
+
+        Binarios3 a = new Binarios3("./enchufable.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
+
+        modelo.addElement(new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4));
+        enchufable f = new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4);
+
+        AdministracionFabrica.agregarenchufable(f);
+
+        cbE.setModel(modelo11);
+        cb_3.setModel(modelo22);
+        David3 g = new David3();
+        g.getLista3().add(f);
+        g.setNombre(cnombre3.getText());
         modelo11.addElement(g);
         modelo22.addElement(g);
-        cnombre5.setText("");
 
-        marca5.setText("");
-        capacidad5.setText("");
-        autonomia5.setText("");
+        cnombre3.setText("");
+        marca3.setText("");
+        modelo3.setText("");
+        vin3.setText("");
         //
-        modulos5.setText("");
-        carga5.setText("");
-        tiempo5.setText("");
-        JOptionPane.showMessageDialog(this, "Bateria Agregada");
-    }//GEN-LAST:event_jButton11ActionPerformed
+        maleteros3.setText("");
+        galones3.setText("");
+    }//GEN-LAST:event_jButton7MouseClicked
 
-    private void cbBateriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbBateriaItemStateChanged
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbBateriaItemStateChanged
+        mos3.setModal(true);
+        mos3.pack();
+        mos3.setLocationRelativeTo(this);
+        mos3.setVisible(true);
+    }//GEN-LAST:event_jButton6MouseClicked
 
-    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+    private void galones3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_galones3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13MouseClicked
+    }//GEN-LAST:event_galones3ActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        mos5.setModal(true);
-        mos5.pack();
-        mos5.setLocationRelativeTo(this);
-        mos5.setVisible(true);
-    }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        mos2.setModal(true);
+        mos2.pack();
+        mos2.setLocationRelativeTo(this);
+        mos2.setVisible(true);
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        new Simulacion().setVisible(true);
-    }//GEN-LAST:event_jButton14ActionPerformed
+        //        try {
+        String marca3 = marca2.getText();
+        String modelo3 = modelo2.getText();
+        String vin3 = vin2.getText();
+        String carroceria3 = "";
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Bateria Agregada\nProceda al boton de abajo");
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton14MouseClicked
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
-        new Simulacion2().setVisible(true);
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        // TODO add your handling code here:
-        try {
-            David2 cc = (David2) cbH.getSelectedItem();
-            int c = cc.getLista2().size();
-            System.out.println(c);
-            h1.setCont(c);
-            h1.setProgBar(barra1);
-            h1.setAvanzar(true);
-            int i = cbH.getSelectedIndex();
-            hibrido p;
-            p = cc.getLista2().get(i);
-            DefaultTableModel modelo66 = (DefaultTableModel) t2.getModel();
-            for (int j = 0; j < cc.getLista2().size(); j++) {
-                String n = cc.getLista2().get(j).getMarcah();
-                String pun = cc.getLista2().get(j).getModeloh();
-                String fecha = cc.getLista2().get(j).getVinh();
-                String ti = cc.getLista2().get(j).getCarroceriah();
-                String gen = cc.getLista2().get(j).getPrecioh();
-                Object newRow[] = {
-                    n, pun, fecha, ti, gen
-
-                };
-
-                modelo66.addRow(newRow);
-
-                t2.setModel(modelo66);
-            }
-            JOptionPane.showMessageDialog(this, "El Vehiculo Hibrido Fue Ensamblado Correctamente");
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+        if (cb_carroceria2.getSelectedIndex() == 0) {
+            carroceria3 = "familiar";
+        }
+        if (cb_carroceria2.getSelectedIndex() == 1) {
+            carroceria3 = "SUV";
+        }
+        if (cb_carroceria2.getSelectedIndex() == 2) {
+            carroceria3 = "compacto";
+        }
+        if (cb_carroceria2.getSelectedIndex() == 3) {
+            carroceria3 = "subcompacto";
+        }
+        if (cb_carroceria2.getSelectedIndex() == 4) {
+            carroceria3 = "deportivo";
         }
 
-    }//GEN-LAST:event_jButton17ActionPerformed
+        String km3 = km2.getText();
+        String cantpasajeros3 = cantpasajeros2.getText();
+        String precio3 = precio2.getText();
 
-    private void t2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t2MouseClicked
+        DefaultListModel modelo
+                = (DefaultListModel) j_hibrido.getModel();
+
+        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbH.getModel();
+        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_2.getModel();
+
+        Binarios2 a = new Binarios2("./hibrido.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
+
+        modelo.addElement(new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3));
+        hibrido f = new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3);
+
+        AdministracionFabrica.agregarhibrido(f);
+        //
+        cbH.setModel(modelo11);
+        cb_2.setModel(modelo22);
+        David2 g = new David2();
+        g.getLista2().add(f);
+        g.setNombre(cnombre2.getText());
+        modelo11.addElement(g);
+        modelo22.addElement(g);
+        cnombre2.setText("");
+
+        marca2.setText("");
+        modelo2.setText("");
+        vin2.setText("");
+        //
+        km2.setText("");
+        cantpasajeros2.setText("");
+        precio2.setText("");
+        //        } catch (Exception e) {
+        //        }
+
+    }//GEN-LAST:event_jButton4MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_t2MouseClicked
+        mos.setModal(true);
+        mos.pack();
+        mos.setLocationRelativeTo(this);
+        mos.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
 
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+
+        String marca2 = marca1.getText();
+        String modelo2 = modelo1.getText();
+        String vin2 = vin1.getText();
+        String carroceria2 = "";
+
+        if (cb_carroceria1.getSelectedIndex() == 0) {
+            carroceria2 = "familiar";
+        }
+        if (cb_carroceria1.getSelectedIndex() == 1) {
+            carroceria2 = "SUV";
+        }
+        if (cb_carroceria1.getSelectedIndex() == 2) {
+            carroceria2 = "compacto";
+        }
+        if (cb_carroceria1.getSelectedIndex() == 3) {
+            carroceria2 = "subcompacto";
+        }
+        if (cb_carroceria1.getSelectedIndex() == 4) {
+            carroceria2 = "deportivo";
+        }
+
+        String cilindrada2 = cilindraje1.getText();
+        String cantcilindros2 = cantcilindros1.getText();
+        String consumo2 = consumo1.getText();
+
+        DefaultListModel modelo
+                = (DefaultListModel) j_combustible.getModel();
+
+        DefaultComboBoxModel modelo10 = (DefaultComboBoxModel) cb.getModel();
+        DefaultComboBoxModel modelo20 = (DefaultComboBoxModel) cb_1.getModel();
+
+        //Binarios
+        Binarios1 a = new Binarios1("./combustion.cbm");
+        a.cargarArchivo();
+        a.escribirArchivo();
+
+        modelo.addElement(new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2));
+        combustion p = new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2);
+
+        AdministracionFabrica.agregarcombustion(p);
+
+        cb.setModel(modelo10);
+        cb_1.setModel(modelo20);
+        David c = new David();
+        c.getLista().add(p);
+        c.setNombre(cnombre1.getText());
+        modelo10.addElement(c);
+        modelo20.addElement(c);
+        cnombre1.setText("");
+
+        marca1.setText("");
+        modelo1.setText("");
+        vin1.setText("");
+        //
+        cilindraje1.setText("");
+        cantcilindros1.setText("");
+        consumo1.setText("");
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         // TODO add your handling code here:
         try {
-            David3 cc = (David3) cbE.getSelectedItem();
-            int c = cc.getLista3().size();
-            System.out.println(c);
-            h1.setCont(c);
-            h1.setProgBar(barra2);
-            h1.setAvanzar(true);
-            int i = cbE.getSelectedIndex();
-            enchufable p;
-            p = cc.getLista3().get(i);
-            DefaultTableModel modelo66 = (DefaultTableModel) t3.getModel();
-            for (int j = 0; j < cc.getLista3().size(); j++) {
-                String a = cc.getLista3().get(j).getMarcae();
-                String b = cc.getLista3().get(j).getModeloe();
-                String ce = cc.getLista3().get(j).getVine();
-                String d = cc.getLista3().get(j).getCarroceriae();
-                String e = cc.getLista3().get(j).getCantgalones();
-                Object newRow[] = {
-                    a, b, ce, d, e
-
-                };
-
-                modelo66.addRow(newRow);
-
-                t2.setModel(modelo66);
+            if (jTable1.getSelectedRow() >= 0) {
+                DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+                modelo.removeRow(jTable1.getSelectedRow());
+                jTable1.setModel(modelo);
             }
-            JOptionPane.showMessageDialog(this, "El Vehiculo Enchufable Fue Ensamblado Correctamente");
-
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+            JOptionPane.showMessageDialog(this, "Ocurrio un Error");
         }
-    }//GEN-LAST:event_jButton18ActionPerformed
+    }//GEN-LAST:event_jButton20ActionPerformed
 
-    private void t3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t3MouseClicked
+    private void cbbateriasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbateriasItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_t3MouseClicked
+    }//GEN-LAST:event_cbbateriasItemStateChanged
 
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    private void cbbaterias2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbaterias2ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbaterias2ItemStateChanged
+
+    private void cbbaterias3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbbaterias3ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbaterias3ItemStateChanged
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
         try {
-            David4 cc = (David4) cbEl.getSelectedItem();
-            int c = cc.getLista4().size();
-            System.out.println(c);
-            h1.setCont(c);
-            h1.setProgBar(barra3);
-            h1.setAvanzar(true);
-            int i = cbEl.getSelectedIndex();
-            electrico p;
-            p = cc.getLista4().get(i);
-            DefaultTableModel modelo66 = (DefaultTableModel) t4.getModel();
-            for (int j = 0; j < cc.getLista4().size(); j++) {
-                String a = cc.getLista4().get(j).getMarcael();
-                String b = cc.getLista4().get(j).getModeloel();
-                String ce = cc.getLista4().get(j).getVinel();
-                String d = cc.getLista4().get(j).getCarroceriael();
-                String e = cc.getLista4().get(j).getTiemporecargael();
-                Object newRow[] = {
-                    a, b, ce, d, e
-
-                };
-
-                modelo66.addRow(newRow);
-
-                t2.setModel(modelo66);
+            if (jTable2.getSelectedRow() >= 0) {
+                DefaultTableModel modelo = (DefaultTableModel) jTable2.getModel();
+                modelo.removeRow(jTable2.getSelectedRow());
+                jTable2.setModel(modelo);
             }
-            JOptionPane.showMessageDialog(this, "El Vehiculo Electrico Fue Ensamblado Correctamente");
-
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Cargue El Archivo");
+            JOptionPane.showMessageDialog(this, "Ocurrio un Error");
         }
-    }//GEN-LAST:event_jButton19ActionPerformed
+    }//GEN-LAST:event_jButton21ActionPerformed
 
-    private void t4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t4MouseClicked
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_t4MouseClicked
+        try {
+            if (jTable3.getSelectedRow() >= 0) {
+                DefaultTableModel modelo = (DefaultTableModel) jTable3.getModel();
+                modelo.removeRow(jTable3.getSelectedRow());
+                jTable3.setModel(modelo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un Error");
+        }
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (jTable4.getSelectedRow() >= 0) {
+                DefaultTableModel modelo = (DefaultTableModel) jTable4.getModel();
+                modelo.removeRow(jTable4.getSelectedRow());
+                jTable4.setModel(modelo);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un Error");
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2273,6 +2431,9 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_carroceria2;
     private javax.swing.JComboBox<String> cb_carroceria3;
     private javax.swing.JComboBox<String> cb_carroceria4;
+    private javax.swing.JComboBox<String> cbbaterias;
+    private javax.swing.JComboBox<String> cbbaterias2;
+    private javax.swing.JComboBox<String> cbbaterias3;
     private javax.swing.JTextField cilindraje1;
     private javax.swing.JTextField cnombre1;
     private javax.swing.JTextField cnombre2;
@@ -2295,6 +2456,10 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -2305,7 +2470,10 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
