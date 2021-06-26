@@ -5,16 +5,21 @@
  */
 package examen2p2_bladylagos;
 
+import Clases.AdministracionFabrica;
+import Clases.Asignar;
 import Clases.David;
 import Clases.David2;
 import Clases.David3;
 import Clases.David4;
+import Clases.David5;
+import Clases.baterias;
 import Clases.combustion;
 import Clases.electrico;
 import Clases.enchufable;
 import Clases.hibrido;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +34,22 @@ public class Fabricacion extends javax.swing.JFrame {
     public Fabricacion() {
         initComponents();
         this.setLocationRelativeTo(null);
+        listarBaterias();
+    }
+
+    public void listarBaterias() {
+        int cantidad = AdministracionFabrica.listabaterias.size();
+        DefaultTableModel modelo = (DefaultTableModel) tblBaterias.getModel();
+        tblBaterias.setModel(modelo);
+        String[] datos = new String[4];
+        for (int i = 0; i < cantidad; i++) {
+            datos[0] = AdministracionFabrica.listabaterias.get(i).getMarcab();
+            datos[1] = AdministracionFabrica.listabaterias.get(i).getCapacidadb();
+            datos[2] = AdministracionFabrica.listabaterias.get(i).getAutonomiab();
+            datos[3] = AdministracionFabrica.listabaterias.get(i).getModulosb();
+            modelo.addRow(datos);
+        }
+
     }
 
     /**
@@ -52,6 +73,18 @@ public class Fabricacion extends javax.swing.JFrame {
         carroceria3 = new javax.swing.JTextField();
         mos4 = new javax.swing.JDialog();
         cb_4 = new javax.swing.JComboBox<>();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tblBaterias = new javax.swing.JTable();
+        mos5 = new javax.swing.JDialog();
+        cb_5 = new javax.swing.JComboBox<>();
+        jButton10 = new javax.swing.JButton();
+        cb_baterias5 = new javax.swing.JComboBox<>();
+        efe = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        cbBateria = new javax.swing.JComboBox<>();
+        jButton12 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         consumo1 = new javax.swing.JTextField();
@@ -156,6 +189,30 @@ public class Fabricacion extends javax.swing.JFrame {
         cbEl = new javax.swing.JComboBox<>();
         jScrollPane8 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        jPanel9 = new javax.swing.JPanel();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        modulos5 = new javax.swing.JTextField();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jButton11 = new javax.swing.JButton();
+        jLabel49 = new javax.swing.JLabel();
+        capacidad5 = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        autonomia5 = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        marca5 = new javax.swing.JTextField();
+        tiempo5 = new javax.swing.JTextField();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        carga5 = new javax.swing.JTextField();
+        cb_baterias6 = new javax.swing.JComboBox<>();
+        jButton13 = new javax.swing.JButton();
+        cnombre5 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout mosLayout = new javax.swing.GroupLayout(mos.getContentPane());
         mos.getContentPane().setLayout(mosLayout);
@@ -226,6 +283,76 @@ public class Fabricacion extends javax.swing.JFrame {
                 .addComponent(cb_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(147, Short.MAX_VALUE))
         );
+
+        tblBaterias.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        tblBaterias.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Código Curso", "Nombre", "Duraciópn(Horas)", "Docente"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(tblBaterias);
+
+        javax.swing.GroupLayout mos5Layout = new javax.swing.GroupLayout(mos5.getContentPane());
+        mos5.getContentPane().setLayout(mos5Layout);
+        mos5Layout.setHorizontalGroup(
+            mos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mos5Layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(cb_5, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+        mos5Layout.setVerticalGroup(
+            mos5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mos5Layout.createSequentialGroup()
+                .addGap(127, 127, 127)
+                .addComponent(cb_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(147, Short.MAX_VALUE))
+        );
+
+        jButton10.setBackground(new java.awt.Color(255, 255, 255));
+        jButton10.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jButton10.setText("Agregar Bateria");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+
+        cb_baterias5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Enchufable", "Electrico" }));
+
+        efe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Enchufable", "Electrico" }));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hibrido", "Enchufable", "Electrico" }));
+
+        cbBateria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbBateriaItemStateChanged(evt);
+            }
+        });
+
+        jButton12.setText("||");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel6.setText("Agregar Bateria:");
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setText("Agregar Vehiculo");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Fabricacion");
@@ -798,9 +925,9 @@ public class Fabricacion extends javax.swing.JFrame {
                             .addComponent(motores4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel38))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel45)
-                            .addComponent(tiempo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tiempo4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel45))))
                 .addGap(13, 13, 13)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel39)
@@ -1046,6 +1173,198 @@ public class Fabricacion extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("CRUD Electrico", jPanel8);
 
+        jButton14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton14.setText("Hibrido");
+        jButton14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton14MouseClicked(evt);
+            }
+        });
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
+
+        jButton15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton15.setText("Hilo Enchufable");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+
+        jButton16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButton16.setText("Electrico");
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(129, 129, 129)
+                .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126)
+                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
+                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(352, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Ensamblaje", jPanel9);
+
+        jLabel46.setText("Modelo");
+
+        jLabel47.setText("Marca");
+
+        jLabel48.setText("Carga");
+
+        jButton11.setText("Agregar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+
+        jLabel49.setText("Modulos");
+
+        jLabel50.setText("Tiempo");
+
+        jLabel51.setText("Para que vehiculo");
+
+        jLabel52.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        jLabel52.setText("Baterias");
+
+        jLabel53.setText("Autonomia");
+
+        cb_baterias6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Combustión", "Hibrido", "Hibrido enchufable", "Eléctrico puro" }));
+
+        jButton13.setText("CB");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Nombre Archivo:");
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(200, 200, 200)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGap(206, 206, 206)
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel46)
+                                    .addComponent(jLabel53)
+                                    .addComponent(jLabel47)
+                                    .addComponent(jLabel49))
+                                .addGap(59, 59, 59)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(capacidad5)
+                                    .addComponent(marca5)
+                                    .addComponent(autonomia5, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(modulos5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(110, 110, 110)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel50)
+                                            .addComponent(jLabel48))
+                                        .addGap(84, 84, 84)
+                                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tiempo5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(carga5, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(jPanel10Layout.createSequentialGroup()
+                                        .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cb_baterias6, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton13)
+                        .addGap(374, 374, 374)
+                        .addComponent(jLabel52)))
+                .addContainerGap(274, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(cnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(430, 430, 430))
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton13)
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cnombre5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel47)
+                            .addComponent(marca5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel46)
+                            .addComponent(capacidad5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel53)
+                            .addComponent(autonomia5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel48)
+                            .addComponent(carga5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel51)
+                            .addComponent(cb_baterias6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel50)
+                            .addComponent(tiempo5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel49))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(modulos5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(79, 79, 79)
+                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(259, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Bateria", jPanel10);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1102,7 +1421,9 @@ public class Fabricacion extends javax.swing.JFrame {
 
         modelo.addElement(new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2));
         combustion p = new combustion(marca2, modelo2, vin2, carroceria2, cilindrada2, cantcilindros2, consumo2);
-//        
+
+        AdministracionFabrica.agregarcombustion(p);
+
         cb.setModel(modelo10);
         cb_1.setModel(modelo20);
         David c = new David();
@@ -1194,6 +1515,8 @@ public class Fabricacion extends javax.swing.JFrame {
 
         modelo.addElement(new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3));
         hibrido f = new hibrido(marca3, modelo3, vin3, carroceria3, km3, cantpasajeros3, precio3);
+
+        AdministracionFabrica.agregarhibrido(f);
 //        
         cbH.setModel(modelo11);
         cb_2.setModel(modelo22);
@@ -1332,6 +1655,8 @@ public class Fabricacion extends javax.swing.JFrame {
         modelo.addElement(new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4));
         enchufable f = new enchufable(vin4, modelo4, vin4, carroceria4, maleteros4, cantgalones4);
 
+        AdministracionFabrica.agregarenchufable(f);
+
         cbE.setModel(modelo11);
         cb_3.setModel(modelo22);
         David3 g = new David3();
@@ -1399,6 +1724,8 @@ public class Fabricacion extends javax.swing.JFrame {
         modelo.addElement(new electrico(marca5, modelo5, vin5, carroceria5, coeficient5, motores5, tiempo5));
         electrico f = new electrico(marca5, modelo5, vin5, carroceria5, coeficient5, motores5, tiempo5);
 
+        AdministracionFabrica.agregarelectrico(f);
+
         cbEl.setModel(modelo11);
         cb_4.setModel(modelo22);
         David4 g = new David4();
@@ -1446,6 +1773,92 @@ public class Fabricacion extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable4MouseClicked
 
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+        new Bateria().setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        String marca6 = marca5.getText();
+        String capacidad6 = capacidad5.getText();
+        String autonomia6 = autonomia5.getText();
+        String modulos6 = modulos5.getText();
+        String carga6 = carga5.getText();
+
+        String cbvehiculos6 = "";
+
+        if (cb_baterias6.getSelectedIndex() == 0) {
+            cbvehiculos6 = "Hibrido";
+        }
+        if (cb_baterias6.getSelectedIndex() == 1) {
+            cbvehiculos6 = "Hibrido enchufable";
+        }
+        if (cb_baterias6.getSelectedIndex() == 2) {
+            cbvehiculos6 = "Eléctrico puro";
+        }
+        String tiempo6 = tiempo5.getText();
+
+        DefaultComboBoxModel modelo11 = (DefaultComboBoxModel) cbBateria.getModel();
+        DefaultComboBoxModel modelo22 = (DefaultComboBoxModel) cb_5.getModel();
+
+        baterias f = new baterias(marca6, capacidad6, autonomia6, modulos6, carga6, cbvehiculos6, tiempo6);
+        AdministracionFabrica.agregarbaterias(f);
+
+        cbBateria.setModel(modelo11);
+        cb_5.setModel(modelo22);
+        David5 g = new David5();
+        g.getLista5().add(f);
+        g.setNombre(cnombre5.getText());
+        modelo11.addElement(g);
+        modelo22.addElement(g);
+        cnombre5.setText("");
+
+        marca5.setText("");
+        capacidad5.setText("");
+        autonomia5.setText("");
+        //
+        modulos5.setText("");
+        carga5.setText("");
+        tiempo5.setText("");
+        JOptionPane.showMessageDialog(this, "Bateria Agregada");
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void cbBateriaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbBateriaItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbBateriaItemStateChanged
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+        mos5.setModal(true);
+        mos5.pack();
+        mos5.setLocationRelativeTo(this);
+        mos5.setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        // TODO add your handling code here:
+        new Simulacion().setVisible(true);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "Bateria Agregada\nProceda al boton de abajo");
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton14MouseClicked
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        // TODO add your handling code here:
+        new Simulacion2().setVisible(true);
+    }//GEN-LAST:event_jButton15ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1482,12 +1895,16 @@ public class Fabricacion extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField autonomia5;
     private javax.swing.JTextField cantcilindros1;
     private javax.swing.JTextField cantpasajeros2;
+    private javax.swing.JTextField capacidad5;
+    private javax.swing.JTextField carga5;
     private javax.swing.JTextField carro1;
     private javax.swing.JTextField carroceria2;
     private javax.swing.JTextField carroceria3;
     private javax.swing.JComboBox<String> cb;
+    private javax.swing.JComboBox<String> cbBateria;
     private javax.swing.JComboBox<String> cbE;
     private javax.swing.JComboBox<String> cbEl;
     private javax.swing.JComboBox<String> cbH;
@@ -1495,6 +1912,9 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_2;
     private javax.swing.JComboBox<String> cb_3;
     private javax.swing.JComboBox<String> cb_4;
+    private javax.swing.JComboBox<String> cb_5;
+    private javax.swing.JComboBox<String> cb_baterias5;
+    private javax.swing.JComboBox<String> cb_baterias6;
     private javax.swing.JComboBox<String> cb_carroceria1;
     private javax.swing.JComboBox<String> cb_carroceria2;
     private javax.swing.JComboBox<String> cb_carroceria3;
@@ -1504,10 +1924,19 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JTextField cnombre2;
     private javax.swing.JTextField cnombre3;
     private javax.swing.JTextField cnombre4;
+    private javax.swing.JTextField cnombre5;
     private javax.swing.JTextField coeficiente4;
     private javax.swing.JTextField consumo1;
+    private javax.swing.JComboBox<String> efe;
     private javax.swing.JTextField galones3;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1516,6 +1945,7 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -1552,7 +1982,19 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -1560,6 +2002,7 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1568,6 +2011,7 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
@@ -1583,17 +2027,22 @@ public class Fabricacion extends javax.swing.JFrame {
     private javax.swing.JTextField marca2;
     private javax.swing.JTextField marca3;
     private javax.swing.JTextField marca4;
+    private javax.swing.JTextField marca5;
     private javax.swing.JTextField modelo1;
     private javax.swing.JTextField modelo2;
     private javax.swing.JTextField modelo3;
     private javax.swing.JTextField modelo4;
+    private javax.swing.JTextField modulos5;
     private javax.swing.JDialog mos;
     private javax.swing.JDialog mos2;
     private javax.swing.JDialog mos3;
     private javax.swing.JDialog mos4;
+    private javax.swing.JDialog mos5;
     private javax.swing.JTextField motores4;
     private javax.swing.JTextField precio2;
+    private javax.swing.JTable tblBaterias;
     private javax.swing.JTextField tiempo4;
+    private javax.swing.JTextField tiempo5;
     private javax.swing.JTextField vin1;
     private javax.swing.JTextField vin2;
     private javax.swing.JTextField vin3;
